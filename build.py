@@ -335,9 +335,9 @@ def appliance_page(a):
 
 # ------------------------------------------------------------------ index pages
 def cat_list(c, limit=None):
-    items = [a for a in apps if a["cat"] == c]
-    lis = "".join(f'<li><a href="{link(a["slug"])}">{esc(a["name"])}</a><span>{headline(a)}</span></li>' for a in items[:limit])
-    return f'<section><h3><a href="{link(cat_slug[c])}">{esc(c)}</a></h3><ul>{lis}</ul></section>'
+    items = sorted([a for a in apps if a["cat"] == c], key=lambda a: -a["year_p"])
+    lis = "".join(f'<li data-name="{esc(a["name"].lower())}" data-year="{a["year_p"]:.2f}"><a href="{link(a["slug"])}">{esc(a["name"])}</a><span>{headline(a)}</span></li>' for a in items[:limit])
+    return f'<section><h3><a href="{link(cat_slug[c])}">{esc(c)}</a></h3><ul class="sortable">{lis}</ul></section>'
 
 def home():
     top = sorted(apps, key=lambda a: -a["year_p"])[:10]
@@ -349,6 +349,7 @@ def home():
 <input class="search" id="q" type="search" placeholder="Search appliances, e.g. air fryer" aria-label="Search appliances">
 <div class="grid" id="results" hidden>{search_items}</div>
 <div id="browse">
+<div class="sortbar">Sort by <button type="button" class="sortbtn on" data-key="year" data-dir="desc">Cost per year <span class="arr">▼</span></button><button type="button" class="sortbtn" data-key="name" data-dir="asc">Name <span class="arr"></span></button></div>
 <div class="cats">{''.join(cat_list(c) for c in cats)}</div>
 {ad("Display ad (homepage)")}
 <h2>The biggest costs in a typical home</h2>
@@ -366,12 +367,12 @@ r.querySelectorAll(".tile").forEach(function(el){{el.style.display=el.dataset.n.
 
 def category(c):
     items = sorted([a for a in apps if a["cat"] == c], key=lambda a: -a["year_p"])
-    rows = "".join(f'<tr><td><a href="{link(a["slug"])}">{esc(a["name"])}</a></td><td class="n">{headline(a)}</td><td class="n"><span data-kwhy="{a["kwh_year"]:.4f}">{pounds(a["year_p"])} a year</span></td></tr>' for a in items)
+    rows = "".join(f'<tr data-name="{esc(a["name"].lower())}" data-year="{a["year_p"]:.2f}"><td><a href="{link(a["slug"])}">{esc(a["name"])}</a></td><td class="n">{headline(a)}</td><td class="n"><span data-kwhy="{a["kwh_year"]:.4f}">{pounds(a["year_p"])} a year</span></td></tr>' for a in items)
     body = f"""
 <div class="crumbs"><a href="{link('')}">All appliances</a> › {esc(c)}</div>
 <h1>{esc(c)} appliance running costs</h1>
-<p class="lede">What {len(items)} {esc(c.lower())} appliances cost to run at <b data-rateval>{R:.2f}p/kWh</b>, most expensive per year first. Tap one to adjust for your own usage.</p>
-<div class="card"><table><tr><th>Appliance</th><th class="n">Typical cost</th><th class="n">Per year</th></tr>{rows}</table></div>
+<p class="lede">What {len(items)} {esc(c.lower())} appliances cost to run at <b data-rateval>{R:.2f}p/kWh</b>, most expensive per year first. Tap a column heading to re-order, or an appliance to adjust for your own usage.</p>
+<div class="card"><table><thead><tr><th><button type="button" class="sortbtn th" data-key="name" data-dir="asc">Appliance <span class="arr"></span></button></th><th class="n">Typical cost</th><th class="n"><button type="button" class="sortbtn th on" data-key="year" data-dir="desc">Per year <span class="arr">▼</span></button></th></tr></thead><tbody class="sortable">{rows}</tbody></table></div>
 {ad("Display ad (category)")}
 <h2>Ways to cut {esc(c.lower())} costs</h2>
 <ul class="tips">{''.join(f'<li>{esc(t)}</li>' for t in CAT_TIPS[c])}</ul>"""
