@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cleaning &amp; garden appliance running costs (UK) – RunCosts</title>
+<meta name="description" content="Running costs for 10 cleaning &amp; garden appliances in the UK at the current price cap, from most to least expensive.">
+<link rel="canonical" href="https://runcosts.co.uk/category-cleaning-garden">
+<meta property="og:title" content="Cleaning &amp; garden appliance running costs (UK) – RunCosts">
+<meta property="og:description" content="Running costs for 10 cleaning &amp; garden appliances in the UK at the current price cap, from most to least expensive.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header><div class="bar"><a class="logo" href="/">Run<span>Costs</span></a>
+<button class="ratechip" id="rateChip" type="button">26.32p/kWh</button></div></header>
+<main>
+
+<div class="crumbs"><a href="/">All appliances</a> › Cleaning &amp; garden</div>
+<h1>Cleaning &amp; garden appliance running costs</h1>
+<p class="lede">What 10 cleaning &amp; garden appliances cost to run at <b data-rateval>26.32p/kWh</b>, most expensive per year first. Tap one to adjust for your own usage.</p>
+<div class="card"><table><tr><th>Appliance</th><th class="n">Typical cost</th><th class="n">Per year</th></tr><tr><td><a href="pond-pump">Pond pump</a></td><td class="n"><span data-kwh="1.44000" data-unit="day">38p per day</span></td><td class="n"><span data-kwhy="524.1600">£138 a year</span></td></tr><tr><td><a href="pressure-washer">Pressure washer</a></td><td class="n"><span data-kwh="0.90000" data-unit="use">24p per use</span></td><td class="n"><span data-kwhy="46.8000">£12.32 a year</span></td></tr><tr><td><a href="vacuum-cleaner">Vacuum cleaner</a></td><td class="n"><span data-kwh="0.30000" data-unit="use">7.9p per use</span></td><td class="n"><span data-kwhy="46.8000">£12.32 a year</span></td></tr><tr><td><a href="steam-mop">Steam mop</a></td><td class="n"><span data-kwh="0.43333" data-unit="use">11p per use</span></td><td class="n"><span data-kwhy="45.0667">£11.86 a year</span></td></tr><tr><td><a href="carpet-cleaner">Carpet cleaner</a></td><td class="n"><span data-kwh="0.75000" data-unit="use">20p per use</span></td><td class="n"><span data-kwhy="39.0000">£10.26 a year</span></td></tr><tr><td><a href="cordless-vacuum-charging">Cordless vacuum (charging)</a></td><td class="n"><span data-kwh="0.20000" data-unit="charge">5.3p per charge</span></td><td class="n"><span data-kwhy="31.2000">£8.21 a year</span></td></tr><tr><td><a href="robot-vacuum-charging">Robot vacuum (charging)</a></td><td class="n"><span data-kwh="0.07500" data-unit="charge">2.0p per charge</span></td><td class="n"><span data-kwhy="27.3000">£7.19 a year</span></td></tr><tr><td><a href="electric-lawn-mower">Electric lawn mower</a></td><td class="n"><span data-kwh="0.75000" data-unit="use">20p per use</span></td><td class="n"><span data-kwhy="22.7500">£5.99 a year</span></td></tr><tr><td><a href="leaf-blower">Leaf blower</a></td><td class="n"><span data-kwh="0.62500" data-unit="use">16p per use</span></td><td class="n"><span data-kwhy="8.1250">£2.14 a year</span></td></tr><tr><td><a href="hedge-trimmer">Hedge trimmer</a></td><td class="n"><span data-kwh="0.25000" data-unit="use">6.6p per use</span></td><td class="n"><span data-kwhy="4.3333">£1.14 a year</span></td></tr></table></div>
+<div class="slot"><b>Ad slot</b>Display ad (category)</div>
+<h2>Ways to cut cleaning &amp; garden costs</h2>
+<ul class="tips"><li>Corded tools only draw power while running, so costs are small; it&#x27;s runtime that adds up.</li><li>Charge cordless tools when needed, not continuously.</li><li>Keep filters and blades clean so motors work less hard.</li></ul>
+</main>
+<footer>
+<p><a href="how-we-calculate">How we calculate</a> · <a href="about">About</a> · <a href="privacy">Privacy &amp; cookies</a></p>
+<p>Costs use the Ofgem price cap average for 1 Oct – 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland &amp; Wales). Your rate may differ: tap the rate at the top of any page to use your own. Figures are estimates for typical appliances; check your appliance's label for its actual power.</p>
+</footer>
+<dialog id="rateDlg"><div class="dlg">
+<h2 style="margin-top:0">Your electricity unit rate</h2>
+<p class="note">This is the pence per kWh on your bill or app. Don't use the standing charge: you pay that whether an appliance is on or not. On Economy 7 or an EV tariff, use the rate for the time the appliance runs.</p>
+<p><input id="rateInput" type="number" step="0.01" min="1" max="200" inputmode="decimal"> p/kWh</p>
+<p class="note">Default: Ofgem price cap average for 1 Oct – 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland &amp; Wales). 26.32p/kWh.</p>
+<div class="row"><button class="btn solid" id="rateSave" type="button">Use this rate</button>
+<button class="btn" id="rateReset" type="button">Reset to price cap</button>
+<button class="btn" id="rateClose" type="button">Close</button></div>
+</div></dialog>
+<script>window.RC_CAP={"rate": 26.32, "label": "Ofgem price cap average for 1 Oct \u2013 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland & Wales)."};</script>
+<script src="calc.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+category,appliance,slug,mode,default,min,max,mins_per_use,uses_per_week,duty,source,note,months_per_year
+Kitchen,Kettle,kettle,power,3000.0,1800.0,3000.0,3.0,28.0,1.0,CSE 'What uses watt?' table,"Cost depends on water boiled, not wattage",12
+Kitchen,Air fryer,air-fryer,power,1500.0,800.0,2000.0,25.0,5.0,0.8,Typical range (estimate),Element cycles once hot,12
+Kitchen,Electric oven,electric-oven,power,2100.0,1500.0,3500.0,60.0,4.0,0.65,CSE 'What uses watt?' table,"Once hot, the oven switches its element on and off to hold the temperature, so it isn't at full power all the time. We assume full power 65% of the time, including preheat.",12
+Kitchen,Ceramic hob (per ring),ceramic-hob-per-ring,power,2000.0,1200.0,2500.0,30.0,7.0,0.7,CSE 'What uses watt?' table,,12
+Kitchen,Induction hob (per zone),induction-hob-per-zone,power,1800.0,1200.0,3700.0,30.0,7.0,0.7,Typical range (estimate),More efficient transfer than ceramic,12
+Kitchen,Electric grill,electric-grill,power,1500.0,1000.0,2500.0,15.0,3.0,1.0,CSE 'What uses watt?' table,,12
+Kitchen,Microwave,microwave,power,1000.0,600.0,1500.0,5.0,14.0,1.0,CSE 'What uses watt?' table,Input power is higher than the cooking (output) watts on the front,12
+Kitchen,Toaster,toaster,power,1000.0,700.0,1500.0,3.0,7.0,1.0,CSE 'What uses watt?' table,"The browning setting changes how long it stays on, not its power. Darker toast costs slightly more; the 3-minute default is a medium setting.",12
+Kitchen,Slow cooker,slow-cooker,power,200.0,150.0,300.0,480.0,2.0,0.7,Typical range (estimate),,12
+Kitchen,Electric pressure cooker,electric-pressure-cooker,power,1000.0,700.0,1200.0,40.0,2.0,0.6,Typical range (estimate),e.g. Instant Pot / Ninja Foodi,12
+Kitchen,Rice cooker,rice-cooker,power,500.0,300.0,800.0,30.0,3.0,0.7,Typical range (estimate),,12
+Kitchen,Bean-to-cup coffee machine,bean-to-cup-coffee-machine,power,1450.0,1000.0,1500.0,2.0,14.0,1.0,Typical range (estimate),Excludes standby and warm-up,12
+Kitchen,Pod coffee machine,pod-coffee-machine,power,1400.0,1200.0,1600.0,1.5,14.0,1.0,Typical range (estimate),,12
+Kitchen,Bread maker,bread-maker,power,600.0,450.0,800.0,180.0,1.0,0.5,Typical range (estimate),Heats only part of the programme,12
+Kitchen,Halogen oven,halogen-oven,power,1300.0,1000.0,1400.0,30.0,3.0,0.8,Typical range (estimate),,12
+Kitchen,Soup maker,soup-maker,power,900.0,800.0,1000.0,25.0,2.0,0.8,Typical range (estimate),,12
+Kitchen,Electric pizza oven,electric-pizza-oven,power,1700.0,1200.0,2200.0,30.0,1.0,0.8,Typical range (estimate),,12
+Kitchen,Food dehydrator,food-dehydrator,power,500.0,250.0,800.0,480.0,1.0,0.7,Typical range (estimate),,12
+Kitchen,Sandwich toaster,sandwich-toaster,power,800.0,700.0,2000.0,8.0,3.0,0.8,Typical range (estimate),,12
+Kitchen,Food processor,food-processor,power,700.0,400.0,1000.0,5.0,2.0,1.0,Typical range (estimate),,12
+Kitchen,Blender,blender,power,600.0,300.0,1500.0,2.0,5.0,1.0,Typical range (estimate),,12
+Kitchen,Stand mixer,stand-mixer,power,800.0,500.0,1200.0,10.0,1.0,1.0,Typical range (estimate),,12
+Kitchen,Milk frother,milk-frother,power,500.0,400.0,650.0,2.0,7.0,1.0,Typical range (estimate),,12
+Kitchen,Cooker hood,cooker-hood,power,150.0,50.0,300.0,30.0,7.0,1.0,Typical range (estimate),Fan and lights together. LED lights add only a few watts; older halogen lights add 40–100W. The fan on its top speed draws the most.,12
+Kitchen,Dishwasher,dishwasher,cycle,0.9,0.4,1.6,,5.0,,Typical range (estimate),Use kWh/cycle from energy label,12
+Kitchen,Fridge freezer,fridge-freezer,annual,250.0,100.0,500.0,,,,Energy label figure (estimate),"CSE gives 300W, but that's only while the compressor runs. It switches on and off all day, so the yearly kWh on the energy label is more accurate.",12
+Kitchen,American fridge freezer,american-fridge-freezer,annual,400.0,250.0,600.0,,,,Typical range (estimate),,12
+Kitchen,Fridge,fridge,annual,120.0,60.0,200.0,,,,Typical range (estimate),CSE lists 150W,12
+Kitchen,Mini fridge,mini-fridge,annual,150.0,80.0,250.0,,,,Typical range (estimate),Small fridges are often less efficient per litre,12
+Kitchen,Chest freezer,chest-freezer,annual,200.0,100.0,350.0,,,,Typical range (estimate),CSE lists freezer 150W,12
+Kitchen,Upright freezer,upright-freezer,annual,230.0,120.0,400.0,,,,Typical range (estimate),,12
+Kitchen,Wine cooler,wine-cooler,annual,140.0,80.0,250.0,,,,Typical range (estimate),,12
+Laundry,Washing machine,washing-machine,cycle,0.7,0.2,2.0,,4.0,,Typical range (estimate),30°C vs 40°C makes the biggest difference; CSE lists 2100W heater,12
+Laundry,Tumble dryer,tumble-dryer,cycle,4.0,1.0,6.0,,3.0,,Typical range (estimate),Vented/condenser; CSE lists 2500W,12
+Laundry,Heat pump tumble dryer,heat-pump-tumble-dryer,cycle,1.8,1.0,2.5,,3.0,,Typical range (estimate),,12
+Laundry,Washer dryer,washer-dryer,cycle,5.0,3.0,7.0,,3.0,,Typical range (estimate),Wash and dry cycle combined,12
+Laundry,Heated clothes airer,heated-clothes-airer,power,300.0,200.0,400.0,360.0,3.0,1.0,Typical range (estimate),,6
+Laundry,Iron,iron,power,2200.0,1200.0,3100.0,30.0,1.0,0.6,CSE 'What uses watt?' table,CSE lists 1500W; modern steam irons usually higher,12
+Laundry,Steam generator iron,steam-generator-iron,power,2400.0,2000.0,3000.0,45.0,1.0,0.6,Typical range (estimate),,12
+Laundry,Clothes steamer,clothes-steamer,power,1500.0,1000.0,2000.0,10.0,2.0,1.0,Typical range (estimate),,12
+Heating,Oil-filled radiator,oil-filled-radiator,power,2000.0,500.0,2500.0,240.0,7.0,0.6,CSE 'What uses watt?' table,,6
+Heating,Electric fan heater,electric-fan-heater,power,2000.0,1000.0,3000.0,120.0,7.0,0.7,CSE 'What uses watt?' table,CSE lists electric heaters 2500W,6
+Heating,Convector heater,convector-heater,power,2000.0,1000.0,3000.0,180.0,7.0,0.7,CSE 'What uses watt?' table,,6
+Heating,Electric panel heater,electric-panel-heater,power,1500.0,500.0,2000.0,240.0,7.0,0.6,Typical range (estimate),,6
+Heating,Halogen heater,halogen-heater,power,1200.0,400.0,1800.0,120.0,7.0,1.0,Typical range (estimate),,6
+Heating,Infrared heater,infrared-heater,power,600.0,300.0,1200.0,240.0,7.0,0.6,Typical range (estimate),,6
+Heating,Storage heater,storage-heater,power,2550.0,1700.0,3400.0,420.0,7.0,1.0,Typical range (estimate),Charges overnight; use off-peak (Economy 7) rate,6
+Heating,Electric towel rail,electric-towel-rail,power,450.0,100.0,600.0,120.0,7.0,1.0,CSE 'What uses watt?' table,,6
+Heating,Electric underfloor heating,electric-underfloor-heating,power,600.0,300.0,1500.0,120.0,7.0,0.6,Typical range (estimate),Typical bathroom area,6
+Heating,Electric fire,electric-fire,power,1800.0,1000.0,2000.0,120.0,7.0,0.7,Typical range (estimate),Flame effect alone uses far less,6
+Heating,Electric patio heater,electric-patio-heater,power,2000.0,1500.0,3000.0,120.0,1.0,1.0,Typical range (estimate),,6
+Heating,Electric blanket,electric-blanket,power,150.0,40.0,200.0,120.0,7.0,1.0,CSE 'What uses watt?' table,CSE heating blanket 150W,6
+Heating,Heated throw,heated-throw,power,120.0,60.0,160.0,180.0,7.0,1.0,Typical range (estimate),,6
+Heating,Immersion heater,immersion-heater,power,3000.0,3000.0,3000.0,60.0,7.0,1.0,CSE 'What uses watt?' table,,12
+Heating,Electric shower,electric-shower,power,9000.0,7500.0,10800.0,8.0,14.0,1.0,CSE 'What uses watt?' table,,12
+Heating,Hot tub,hot-tub,annual,2500.0,1500.0,5000.0,,,,Typical range (estimate),"Varies hugely with cover, insulation and season",12
+Cooling & air,Dehumidifier (compressor),dehumidifier-compressor,power,250.0,150.0,700.0,480.0,7.0,1.0,Typical range (estimate),CSE lists dehumidifier 500W,6
+Cooling & air,Dehumidifier (desiccant),dehumidifier-desiccant,power,550.0,300.0,700.0,480.0,7.0,1.0,Typical range (estimate),,6
+Cooling & air,Desk fan,desk-fan,power,40.0,20.0,60.0,240.0,7.0,1.0,Typical range (estimate),,3
+Cooling & air,Tower fan,tower-fan,power,50.0,30.0,110.0,240.0,7.0,1.0,Typical range (estimate),,3
+Cooling & air,Ceiling fan,ceiling-fan,power,50.0,20.0,75.0,240.0,7.0,1.0,Typical range (estimate),,3
+Cooling & air,Portable air conditioner,portable-air-conditioner,power,1000.0,700.0,1500.0,240.0,7.0,0.8,Typical range (estimate),,3
+Cooling & air,Air purifier,air-purifier,power,40.0,10.0,100.0,720.0,7.0,1.0,Typical range (estimate),,12
+Cooling & air,Bathroom extractor fan,bathroom-extractor-fan,power,20.0,5.0,40.0,30.0,14.0,1.0,CSE 'What uses watt?' table,,12
+Cleaning & garden,Vacuum cleaner,vacuum-cleaner,power,900.0,400.0,1600.0,20.0,3.0,1.0,CSE 'What uses watt?' table,,12
+Cleaning & garden,Cordless vacuum (charging),cordless-vacuum-charging,power,50.0,25.0,120.0,240.0,3.0,1.0,Typical range (estimate),"Charging, not run time",12
+Cleaning & garden,Robot vacuum (charging),robot-vacuum-charging,power,25.0,15.0,50.0,180.0,7.0,1.0,Typical range (estimate),,12
+Cleaning & garden,Steam mop,steam-mop,power,1300.0,1000.0,1600.0,20.0,2.0,1.0,Typical range (estimate),,12
+Cleaning & garden,Carpet cleaner,carpet-cleaner,power,1000.0,600.0,1500.0,45.0,1.0,1.0,Typical range (estimate),,12
+Cleaning & garden,Pressure washer,pressure-washer,power,1800.0,1300.0,2500.0,30.0,1.0,1.0,Typical range (estimate),,12
+Cleaning & garden,Electric lawn mower,electric-lawn-mower,power,1000.0,1000.0,1800.0,45.0,1.0,1.0,CSE 'What uses watt?' table,,7
+Cleaning & garden,Hedge trimmer,hedge-trimmer,power,500.0,400.0,700.0,30.0,1.0,1.0,Typical range (estimate),,4
+Cleaning & garden,Leaf blower,leaf-blower,power,2500.0,1500.0,3000.0,15.0,1.0,1.0,Typical range (estimate),,3
+Cleaning & garden,Pond pump,pond-pump,power,60.0,20.0,150.0,1440.0,7.0,1.0,Typical range (estimate),,12
+Personal care,Hair dryer,hair-dryer,power,2000.0,1200.0,2400.0,10.0,7.0,1.0,CSE 'What uses watt?' table,,12
+Personal care,Hair straighteners,hair-straighteners,power,60.0,40.0,200.0,25.0,5.0,1.0,Typical range (estimate),,12
+Personal care,Curling tongs,curling-tongs,power,50.0,30.0,100.0,20.0,3.0,1.0,Typical range (estimate),,12
+Personal care,Hot air styler,hot-air-styler,power,1300.0,1000.0,1400.0,15.0,5.0,1.0,Typical range (estimate),e.g. Airwrap-type stylers,12
+Personal care,Electric toothbrush (charging),electric-toothbrush-charging,power,2.0,1.0,5.0,1440.0,7.0,1.0,Typical range (estimate),,12
+Personal care,Electric shaver (charging),electric-shaver-charging,power,5.0,3.0,10.0,60.0,7.0,1.0,Typical range (estimate),,12
+Entertainment & tech,TV (LED/LCD),tv-led-lcd,power,100.0,30.0,250.0,240.0,7.0,1.0,CSE 'What uses watt?' table,CSE lists LCD TV 120W,12
+Entertainment & tech,OLED TV,oled-tv,power,120.0,80.0,300.0,240.0,7.0,1.0,Typical range (estimate),,12
+Entertainment & tech,Games console,games-console,power,180.0,15.0,230.0,120.0,7.0,1.0,CSE 'What uses watt?' table,CSE lists 120W; current consoles higher,12
+Entertainment & tech,Gaming PC,gaming-pc,power,400.0,250.0,800.0,180.0,7.0,1.0,Typical range (estimate),,12
+Entertainment & tech,Desktop computer,desktop-computer,power,140.0,60.0,300.0,300.0,5.0,1.0,CSE 'What uses watt?' table,,12
+Entertainment & tech,Laptop,laptop,power,50.0,20.0,100.0,360.0,5.0,1.0,CSE 'What uses watt?' table,,12
+Entertainment & tech,Computer monitor,computer-monitor,power,30.0,15.0,80.0,360.0,5.0,1.0,Typical range (estimate),,12
+Entertainment & tech,Phone charger,phone-charger,power,10.0,5.0,30.0,120.0,7.0,1.0,Typical range (estimate),,12
+Entertainment & tech,Tablet charger,tablet-charger,power,10.0,5.0,20.0,180.0,3.0,1.0,Typical range (estimate),,12
+Entertainment & tech,Wi-fi router,wi-fi-router,power,10.0,5.0,20.0,1440.0,7.0,1.0,CSE 'What uses watt?' table,,12
+Entertainment & tech,Smart speaker,smart-speaker,power,3.0,2.0,10.0,1440.0,7.0,1.0,Typical range (estimate),,12
+Entertainment & tech,Soundbar,soundbar,power,30.0,10.0,60.0,240.0,7.0,1.0,Typical range (estimate),,12
+Entertainment & tech,Streaming box,streaming-box,power,15.0,5.0,40.0,240.0,7.0,1.0,CSE 'What uses watt?' table,CSE lists TV box 40W,12
+Entertainment & tech,DVD player,dvd-player,power,15,8,40,120,2,1,CSE 'What uses watt?' table,"CSE lists 40W, which fits older players; most current ones use 8–15W. Blu-ray players are similar.",12
+Entertainment & tech,Projector,projector,power,200.0,100.0,350.0,150.0,2.0,1.0,Typical range (estimate),,12
+Entertainment & tech,Inkjet printer,inkjet-printer,power,20.0,10.0,40.0,5.0,3.0,1.0,Typical range (estimate),,12
+Entertainment & tech,3D printer,3d-printer,power,150.0,100.0,300.0,240.0,2.0,1.0,Typical range (estimate),,12
+Transport,Electric car charging (home),electric-car-charging-home,power,7000.0,2300.0,7400.0,240.0,3.0,1.0,Typical range (estimate),Use off-peak EV tariff rate where applicable,12
+Transport,E-bike charging,e-bike-charging,power,100.0,50.0,200.0,240.0,1.0,1.0,Typical range (estimate),,12
+Transport,E-scooter charging,e-scooter-charging,power,80.0,40.0,150.0,300.0,2.0,1.0,Typical range (estimate),,12
+Transport,Mobility scooter charging,mobility-scooter-charging,power,150.0,100.0,300.0,480.0,3.0,1.0,Typical range (estimate),,12
+Transport,Electric wheelchair charging,electric-wheelchair-charging,power,150,80,300,480,7,1,Typical range (estimate),Overnight charge of a powerchair's batteries. The charger draws most at the start and tapers off as the batteries fill.,12
+Lighting,LED bulb,led-bulb,power,10.0,4.0,15.0,300.0,7.0,1.0,Typical range (estimate),,12
+Lighting,Halogen bulb,halogen-bulb,power,50.0,20.0,60.0,300.0,7.0,1.0,Typical range (estimate),,12
+Lighting,Incandescent bulb,incandescent-bulb,power,60.0,40.0,100.0,300.0,7.0,1.0,Typical range (estimate),,12
+Lighting,Christmas lights (LED),christmas-lights-led,power,7.0,3.0,30.0,360.0,7.0,1.0,Typical range (estimate),,1
+Lighting,LED strip lights,led-strip-lights,power,15,5,40,300,7,1,Typical range (estimate),Typical 5m strip. Brighter or white settings draw more than dim colours.,12
+Lighting,Outdoor security light,outdoor-security-light,power,20.0,10.0,50.0,60.0,7.0,1.0,Typical range (estimate),,12
+Other,Fish tank,fish-tank,power,100.0,30.0,300.0,1440.0,7.0,0.5,Typical range (estimate),Heater cycles; lights on part of day,12
+Other,Treadmill,treadmill,power,1500.0,600.0,3000.0,30.0,3.0,0.6,Typical range (estimate),Draw varies with speed and incline,12
+Other,CPAP machine,cpap-machine,power,40.0,20.0,90.0,480.0,7.0,1.0,Typical range (estimate),Higher with heated humidifier,12
+Other,Baby bottle steriliser,baby-bottle-steriliser,power,650.0,500.0,800.0,8.0,7.0,1.0,Typical range (estimate),,12
+Other,Baby bottle warmer,baby-bottle-warmer,power,300.0,200.0,500.0,5.0,21.0,1.0,Typical range (estimate),,12
+Other,Baby monitor,baby-monitor,power,3.0,2.0,6.0,720.0,7.0,1.0,Typical range (estimate),,12
+Other,Sewing machine,sewing-machine,power,100.0,60.0,150.0,60.0,2.0,1.0,Typical range (estimate),,12

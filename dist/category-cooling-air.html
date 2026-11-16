@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cooling &amp; air appliance running costs (UK) – RunCosts</title>
+<meta name="description" content="Running costs for 8 cooling &amp; air appliances in the UK at the current price cap, from most to least expensive.">
+<link rel="canonical" href="https://runcosts.co.uk/category-cooling-air">
+<meta property="og:title" content="Cooling &amp; air appliance running costs (UK) – RunCosts">
+<meta property="og:description" content="Running costs for 8 cooling &amp; air appliances in the UK at the current price cap, from most to least expensive.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header><div class="bar"><a class="logo" href="/">Run<span>Costs</span></a>
+<button class="ratechip" id="rateChip" type="button">26.32p/kWh</button></div></header>
+<main>
+
+<div class="crumbs"><a href="/">All appliances</a> › Cooling &amp; air</div>
+<h1>Cooling &amp; air appliance running costs</h1>
+<p class="lede">What 8 cooling &amp; air appliances cost to run at <b data-rateval>26.32p/kWh</b>, most expensive per year first. Tap one to adjust for your own usage.</p>
+<div class="card"><table><tr><th>Appliance</th><th class="n">Typical cost</th><th class="n">Per year</th></tr><tr><td><a href="dehumidifier-desiccant">Dehumidifier (desiccant)</a></td><td class="n"><span data-kwh="4.40000" data-unit="day">£1.16 per day</span></td><td class="n"><span data-kwhy="800.8000">£211 a year</span></td></tr><tr><td><a href="dehumidifier-compressor">Dehumidifier (compressor)</a></td><td class="n"><span data-kwh="2.00000" data-unit="day">53p per day</span></td><td class="n"><span data-kwhy="364.0000">£95.80 a year</span></td></tr><tr><td><a href="portable-air-conditioner">Portable air conditioner</a></td><td class="n"><span data-kwh="3.20000" data-unit="day">84p per day</span></td><td class="n"><span data-kwhy="291.2000">£76.64 a year</span></td></tr><tr><td><a href="air-purifier">Air purifier</a></td><td class="n"><span data-kwh="0.48000" data-unit="day">13p per day</span></td><td class="n"><span data-kwhy="174.7200">£45.99 a year</span></td></tr><tr><td><a href="tower-fan">Tower fan</a></td><td class="n"><span data-kwh="0.20000" data-unit="day">5.3p per day</span></td><td class="n"><span data-kwhy="18.2000">£4.79 a year</span></td></tr><tr><td><a href="ceiling-fan">Ceiling fan</a></td><td class="n"><span data-kwh="0.20000" data-unit="day">5.3p per day</span></td><td class="n"><span data-kwhy="18.2000">£4.79 a year</span></td></tr><tr><td><a href="desk-fan">Desk fan</a></td><td class="n"><span data-kwh="0.16000" data-unit="day">4.2p per day</span></td><td class="n"><span data-kwhy="14.5600">£3.83 a year</span></td></tr><tr><td><a href="bathroom-extractor-fan">Bathroom extractor fan</a></td><td class="n"><span data-kwh="0.01000" data-unit="use">0.3p per use</span></td><td class="n"><span data-kwhy="7.2800">£1.92 a year</span></td></tr></table></div>
+<div class="slot"><b>Ad slot</b>Display ad (category)</div>
+<h2>Ways to cut cooling &amp; air costs</h2>
+<ul class="tips"><li>Run it on the lowest setting that does the job.</li><li>Close curtains on the sunny side during the day.</li><li>Use a timer so it isn&#x27;t left running in an empty room.</li></ul>
+</main>
+<footer>
+<p><a href="how-we-calculate">How we calculate</a> · <a href="about">About</a> · <a href="privacy">Privacy &amp; cookies</a></p>
+<p>Costs use the Ofgem price cap average for 1 Oct – 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland &amp; Wales). Your rate may differ: tap the rate at the top of any page to use your own. Figures are estimates for typical appliances; check your appliance's label for its actual power.</p>
+</footer>
+<dialog id="rateDlg"><div class="dlg">
+<h2 style="margin-top:0">Your electricity unit rate</h2>
+<p class="note">This is the pence per kWh on your bill or app. Don't use the standing charge: you pay that whether an appliance is on or not. On Economy 7 or an EV tariff, use the rate for the time the appliance runs.</p>
+<p><input id="rateInput" type="number" step="0.01" min="1" max="200" inputmode="decimal"> p/kWh</p>
+<p class="note">Default: Ofgem price cap average for 1 Oct – 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland &amp; Wales). 26.32p/kWh.</p>
+<div class="row"><button class="btn solid" id="rateSave" type="button">Use this rate</button>
+<button class="btn" id="rateReset" type="button">Reset to price cap</button>
+<button class="btn" id="rateClose" type="button">Close</button></div>
+</div></dialog>
+<script>window.RC_CAP={"rate": 26.32, "label": "Ofgem price cap average for 1 Oct \u2013 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland & Wales)."};</script>
+<script src="calc.js"></script>
+</body>
+</html>
