@@ -42,7 +42,7 @@
   var D=null,el=$("appdata");
   if(el){try{D=JSON.parse(el.textContent)}catch(e){}}
   var ids=[];
-  var fmts={w:function(v){return v+" W"},m:mins,u:function(v){return v},k:function(v){return (+v).toFixed(2)+" kWh"},y:function(v){return v+" kWh"},mo:function(v){return v+(v==1?" month":" months")}};
+  var fmts={w:function(v){return v+" W"},m:mins,u:function(v){return v},k:function(v){return (+v).toFixed(2)+" kWh"},y:function(v){return v+" kWh"},mth:function(v){return v+(v==1?" month":" months")}};
   function ctl(id,label,a,val,help){
     return '<div class="ctl"><label for="'+id+'">'+label+'<output id="'+id+'o"></output></label>'+
       '<input type="range" id="'+id+'" min="'+a[0]+'" max="'+a[1]+'" step="'+a[3]+'" value="'+val+'">'+(help?'<small>'+help+'</small>':'')+'</div>';
@@ -63,11 +63,11 @@
       h+=ctl("y","Energy use per year",D.y,D.y[2],"Printed on the energy label as kWh/annum.");
       ids=["y"];
     }
-    if(D.mode!=="annual"&&D.mo<12){h+=ctl("mo","Months used per year",[1,12,D.mo,1],D.mo);ids.push("mo")}
+    if(D.mode!=="annual"&&D.mo<12){h+=ctl("mth","Months used per year",[1,12,D.mo,1],D.mo);ids.push("mth")}
     $("controls").innerHTML=h;
     ids.forEach(function(i){$(i).addEventListener("input",render)});
     $("resetBtn").addEventListener("click",function(){
-      var d={w:D.w&&D.w[2],m:D.m&&D.m[2],u:D.u&&D.u[2],k:D.k&&D.k[2],y:D.y&&D.y[2],mo:D.mo};
+      var d={w:D.w&&D.w[2],m:D.m&&D.m[2],u:D.u&&D.u[2],k:D.k&&D.k[2],y:D.y&&D.y[2],mth:D.mo};
       ids.forEach(function(i){$(i).value=d[i]});render();
     });
   }
@@ -75,7 +75,7 @@
   function render(){
     if(!D)return;
     var s=read();ids.forEach(function(i){$(i+"o").textContent=fmts[i](s[i])});
-    var mo=s.mo||D.mo,kUse=null,kWeek,kYear;
+    var mo=s.mth||D.mo,kUse=null,kWeek,kYear;
     if(D.mode==="power"){kUse=s.w/1000*(s.m/60)*D.duty;kWeek=kUse*s.u;kYear=kWeek*52*mo/12}
     else if(D.mode==="cycle"){kUse=s.k;kWeek=s.k*s.u;kYear=kWeek*52*mo/12}
     else{kYear=s.y;kWeek=kYear/52}
