@@ -263,9 +263,14 @@ def auto_usage(a):
 def similar(a, n=6):
     pool = [b for b in apps if b["cat"] == a["cat"] and b is not a]
     pool.sort(key=lambda b: abs(b["year_p"] - a["year_p"]))
-    pick = sorted(pool[:n], key=lambda b: b["year_p"])
-    rows = "".join(f'<tr><td><a href="{link(b["slug"])}">{esc(b["name"])}</a></td><td class="n">{headline(b)}</td></tr>' for b in pick)
-    return f'<table>{rows}</table>'
+    pick = sorted(pool[:n] + [a], key=lambda b: -b["year_p"])
+    def row(b):
+        name = f'<b>{esc(b["name"])} (this page)</b>' if b is a else f'<a href="{link(b["slug"])}">{esc(b["name"])}</a>'
+        return (f'<tr data-name="{esc(b["name"].lower())}" data-year="{b["year_p"]:.2f}"><td>{name}</td><td class="n">{headline(b)}</td>'
+                f'<td class="n"><span data-kwhy="{b["kwh_year"]:.4f}">{pounds(b["year_p"])} a year</span></td></tr>')
+    head = ('<thead><tr><th><button type="button" class="sortbtn th" data-key="name" data-dir="asc">Appliance <span class="arr"></span></button></th>'
+            '<th class="n">Typical cost</th><th class="n"><button type="button" class="sortbtn th on" data-key="year" data-dir="desc">Per year <span class="arr">▼</span></button></th></tr></thead>')
+    return f'<table>{head}<tbody class="sortable">{"".join(row(b) for b in pick)}</tbody></table>'
 
 def appliance_page(a):
     data = {"mode": a["mode"], "duty": a["duty"], "mo": a["mo"], "unit": a["unit"]}
