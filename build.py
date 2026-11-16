@@ -6,7 +6,7 @@ Usage:  python3 build.py            -> dist/          (production: clean URLs)
 
 Quarterly price-cap update: change CAP below, then re-run the build and upload dist/.
 """
-import csv, html, json, os, re, shutil, sys
+import csv, hashlib, html, json, os, re, shutil, sys
 from datetime import date
 
 # ------------------------------------------------------------------ settings
@@ -28,6 +28,9 @@ OUT = os.path.join(HERE, "dist-preview" if PREVIEW else "dist")
 DATA = os.path.join(HERE, "data", "appliances.csv")
 TODAY = date.today().isoformat()
 R = CAP["rate"]
+# Cache-busting version for shared assets, so browsers pick up changes straight away
+def _v(f): return hashlib.md5(open(os.path.join(HERE, "src", f), "rb").read()).hexdigest()[:8]
+V_CSS, V_JS = _v("style.css"), _v("calc.js")
 
 esc = html.escape
 def link(slug):
@@ -160,7 +163,7 @@ def page(title, desc, path, body, extra_head=""):
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v={V_CSS}">
 {extra_head}
 </head>
 <body>
@@ -184,7 +187,7 @@ def page(title, desc, path, body, extra_head=""):
 <button class="btn" id="rateClose" type="button">Close</button></div>
 </div></dialog>
 <script>window.RC_CAP={json.dumps({"rate": R, "label": CAP["label"]})};</script>
-<script src="calc.js"></script>
+<script src="calc.js?v={V_JS}"></script>
 </body>
 </html>"""
 
