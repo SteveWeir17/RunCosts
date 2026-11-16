@@ -18,6 +18,10 @@ CAP = {
     "label": "Ofgem price cap average for 1 Oct – 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland & Wales).",
 }
 PREVIEW = "--preview" in sys.argv
+# Ads, partner boxes and email sign-up only appear once they are real (or in preview builds).
+SHOW_ADS = PREVIEW
+SHOW_OFFERS = PREVIEW
+SHOW_EMAIL = PREVIEW
 EXT = ".html" if PREVIEW else ""
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "dist-preview" if PREVIEW else "dist")
@@ -185,13 +189,15 @@ def page(title, desc, path, body, extra_head=""):
 </html>"""
 
 def email_box():
+    if not SHOW_EMAIL: return ""
     return """<div class="card" style="margin-top:26px"><b>Get an email when the price cap changes</b>
 <p class="note" style="margin:4px 0 0">One email a quarter showing what your appliances will cost under the new rates.</p>
 <form class="email" data-email><input type="email" placeholder="you@example.com" aria-label="Email address" required><button class="btn solid">Notify me</button></form><div class="msg"></div></div>"""
 
-def ad(label): return f'<div class="slot"><b>Ad slot</b>{label}</div>'
+def ad(label): return "" if not SHOW_ADS else f'<div class="slot"><b>Ad slot</b>{label}</div>'
 
 def offer_box(a):
+    if not SHOW_OFFERS: return ""
     kind = OFFER.get(a["slug"]) or OFFER.get(a["cat"]) or "plug"
     if kind == "lead":
         return """<div class="offer"><span class="tag">Lead form placeholder</span>
@@ -286,7 +292,7 @@ def appliance_page(a):
     else:
         lab, big = f"Cost per {a['unit']}", money(a["use_p"])
         sub = f"About {pounds(a['year_p'])} a year at {auto_usage(a)}."
-    note = f'<p><b>Worth knowing:</b> {esc(a["note"])}</p>' if a["note"] else ""
+    note = f'<p><b>Worth knowing:</b> {esc(a["note"].rstrip('.'))}.</p>' if a["note"] else ""
     body = f"""
 <div class="crumbs"><a href="{link('')}">All appliances</a> › <a href="{link(cat_slug[a['cat']])}">{esc(a['cat'])}</a> › {esc(a['name'])}</div>
 <h1>{esc(a['title_q'])}</h1>
