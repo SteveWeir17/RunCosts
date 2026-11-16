@@ -111,7 +111,7 @@
     });
     btns.forEach(function(b){
       var on=b.dataset.key===key;b.classList.toggle("on",on);
-      b.querySelector(".arr").textContent=on?(dir==="asc"?"▲":"▼"):"";
+      b.querySelector(".arr").textContent=on?(dir==="asc"?"▲":"▼"):"↕";
       if(on)b.dataset.dir=dir;
     });
   }

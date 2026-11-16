@@ -268,7 +268,7 @@ def similar(a, n=6):
         name = f'<b>{esc(b["name"])} (this page)</b>' if b is a else f'<a href="{link(b["slug"])}">{esc(b["name"])}</a>'
         return (f'<tr data-name="{esc(b["name"].lower())}" data-year="{b["year_p"]:.2f}"><td>{name}</td><td class="n">{headline(b)}</td>'
                 f'<td class="n"><span data-kwhy="{b["kwh_year"]:.4f}">{pounds(b["year_p"])} a year</span></td></tr>')
-    head = ('<thead><tr><th><button type="button" class="sortbtn th" data-key="name" data-dir="asc">Appliance <span class="arr"></span></button></th>'
+    head = ('<thead><tr><th><button type="button" class="sortbtn th" data-key="name" data-dir="asc">Appliance <span class="arr">↕</span></button></th>'
             '<th class="n">Typical cost</th><th class="n"><button type="button" class="sortbtn th on" data-key="year" data-dir="desc">Per year <span class="arr">▼</span></button></th></tr></thead>')
     return f'<table>{head}<tbody class="sortable">{"".join(row(b) for b in pick)}</tbody></table>'
 
@@ -327,7 +327,7 @@ def appliance_page(a):
 <h2>Ways to cut the cost</h2>
 <ul class="tips">{''.join(f'<li>{esc(t)}</li>' for t in tips)}</ul>
 <h2>Compare with similar {esc(a['cat'].lower())} costs</h2>
-<div class="card">{similar(a)}</div>
+<div class="sortbar">Sort by <button type="button" class="sortbtn on" data-key="year" data-dir="desc">Cost per year <span class="arr">▼</span></button><button type="button" class="sortbtn" data-key="name" data-dir="asc">Name A–Z <span class="arr">↕</span></button></div><div class="card">{similar(a)}</div>
 <h2>Questions</h2>
 <div class="faq">{''.join(f'<details><summary>{esc(q)}</summary><p>{esc(ans)}</p></details>' for q, ans in fq)}</div>
 {email_box()}
@@ -354,7 +354,7 @@ def home():
 <input class="search" id="q" type="search" placeholder="Search appliances, e.g. air fryer" aria-label="Search appliances">
 <div class="grid" id="results" hidden>{search_items}</div>
 <div id="browse">
-<div class="sortbar">Sort by <button type="button" class="sortbtn on" data-key="year" data-dir="desc">Cost per year <span class="arr">▼</span></button><button type="button" class="sortbtn" data-key="name" data-dir="asc">Name <span class="arr"></span></button></div>
+<div class="sortbar">Sort by <button type="button" class="sortbtn on" data-key="year" data-dir="desc">Cost per year <span class="arr">▼</span></button><button type="button" class="sortbtn" data-key="name" data-dir="asc">Name A–Z <span class="arr">↕</span></button></div>
 <div class="cats">{''.join(cat_list(c) for c in cats)}</div>
 {ad("Display ad (homepage)")}
 <h2>The biggest costs in a typical home</h2>
@@ -377,7 +377,8 @@ def category(c):
 <div class="crumbs"><a href="{link('')}">All appliances</a> › {esc(c)}</div>
 <h1>{esc(c)} appliance running costs</h1>
 <p class="lede">What {len(items)} {esc(c.lower())} appliances cost to run at <b data-rateval>{R:.2f}p/kWh</b>, most expensive per year first. Tap a column heading to re-order, or an appliance to adjust for your own usage.</p>
-<div class="card"><table><thead><tr><th><button type="button" class="sortbtn th" data-key="name" data-dir="asc">Appliance <span class="arr"></span></button></th><th class="n">Typical cost</th><th class="n"><button type="button" class="sortbtn th on" data-key="year" data-dir="desc">Per year <span class="arr">▼</span></button></th></tr></thead><tbody class="sortable">{rows}</tbody></table></div>
+<div class="sortbar">Sort by <button type="button" class="sortbtn on" data-key="year" data-dir="desc">Cost per year <span class="arr">▼</span></button><button type="button" class="sortbtn" data-key="name" data-dir="asc">Name A–Z <span class="arr">↕</span></button></div>
+<div class="card"><table><thead><tr><th><button type="button" class="sortbtn th" data-key="name" data-dir="asc">Appliance <span class="arr">↕</span></button></th><th class="n">Typical cost</th><th class="n"><button type="button" class="sortbtn th on" data-key="year" data-dir="desc">Per year <span class="arr">▼</span></button></th></tr></thead><tbody class="sortable">{rows}</tbody></table></div>
 {ad("Display ad (category)")}
 <h2>Ways to cut {esc(c.lower())} costs</h2>
 <ul class="tips">{''.join(f'<li>{esc(t)}</li>' for t in CAT_TIPS[c])}</ul>"""
