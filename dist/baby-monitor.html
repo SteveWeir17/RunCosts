@@ -33,6 +33,7 @@
   <div id="controls"><noscript><p class="note">Turn on JavaScript to adjust the figures.</p></noscript></div>
   <div class="ctl"><label>Your unit rate<output id="rateNow">26.32p/kWh</output></label><small id="rateWhat">Ofgem price cap average for 1 Oct – 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland &amp; Wales).</small>
   <button class="btn" type="button" data-rate style="margin-top:8px">Change rate</button></div>
+  
   <button class="btn" type="button" id="resetBtn">Reset to typical</button>
  </div>
 </div>
@@ -49,7 +50,7 @@
 <h2>Questions</h2>
 <div class="faq"><details><summary>How much does it cost to run a baby monitor per hour?</summary><p>At 26.32p/kWh, a 3W model costs about 0.1p an hour while it&#x27;s running.</p></details><details><summary>How much does it cost to run a baby monitor per year?</summary><p>About £3.45 a year, based on 12 hours per night, 7 nights a week. Change the sliders above to match how you use yours.</p></details><details><summary>Is the standing charge included?</summary><p>No. You pay the standing charge every day whether or not the appliance is used, so it isn&#x27;t part of the cost of running it.</p></details><details><summary>How do I find my baby monitor&#x27;s actual power use?</summary><p>Check the rating label, plug or manual for the wattage, or the energy label for kWh figures. A plug-in energy monitor shows exactly what it uses.</p></details></div>
 
-<script type="application/json" id="appdata">{"mode": "power", "duty": 1.0, "mo": 12, "unit": "night", "w": [2.0, 6.0, 3.0, 1], "m": [15, 1440, 720.0, 15], "u": [1, 14, 7.0, 1]}</script>
+<script type="application/json" id="appdata">{"mode": "power", "duty": 1.0, "mo": 12, "unit": "night", "offpeak": false, "w": [2.0, 6.0, 3.0, 1], "m": [15, 1440, 720.0, 15], "u": [1, 14, 7.0, 1]}</script>
 </main>
 <footer>
 <p><a href="how-we-calculate">How we calculate</a> · <a href="about">About</a> · <a href="privacy">Privacy &amp; cookies</a></p>
@@ -65,6 +66,6 @@
 <button class="btn" id="rateClose" type="button">Close</button></div>
 </div></dialog>
 <script>window.RC_CAP={"rate": 26.32, "label": "Ofgem price cap average for 1 Oct \u2013 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland & Wales)."};</script>
-<script src="calc.js?v=5a7a3c55"></script>
+<script src="calc.js?v=840d0030"></script>
 </body>
 </html>

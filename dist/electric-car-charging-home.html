@@ -22,7 +22,7 @@
 
 <div class="crumbs"><a href="/">All appliances</a> › <a href="category-transport">Transport</a> › Electric car charging (home)</div>
 <h1>How much does it cost to charge an electric car at home?</h1>
-<p class="lede">Charging an electric car at home typically draws about 7,000 watts (2,300–7,400W depending on the model). Used for 4 hours per charge, 3 charges a week, it costs about £7.37 per charge and £1,150 a year at the current price cap rate.</p>
+<p class="lede">Charging at home is usually the cheapest way to run an electric car, especially on an EV tariff with a cheap overnight rate. Enter your night rate for a realistic cost; the standard rate overstates it for most EV owners.</p>
 <div class="two">
  <div>
   <div class="answer" aria-live="polite"><div class="lab" id="ansLab">Cost per charge</div><div class="big" id="ansBig">£7.37</div><div class="sub" id="ansSub">About £1,150 a year at 4 hours per charge, 3 charges a week.</div></div>
@@ -33,13 +33,14 @@
   <div id="controls"><noscript><p class="note">Turn on JavaScript to adjust the figures.</p></noscript></div>
   <div class="ctl"><label>Your unit rate<output id="rateNow">26.32p/kWh</output></label><small id="rateWhat">Ofgem price cap average for 1 Oct – 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland &amp; Wales).</small>
   <button class="btn" type="button" data-rate style="margin-top:8px">Change rate</button></div>
+  <div class="ctl"><label for="opRate">Your off-peak rate<output id="opNow">not set</output></label><small>Usually runs overnight on Economy 7 or an EV tariff. Enter your night rate from your bill or app; leave blank to use the rate above.</small><div class="row" style="margin-top:6px"><input id="opRate" type="number" step="0.01" min="1" max="200" inputmode="decimal" style="width:110px;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;font-weight:700"> <span style="align-self:center">p/kWh</span></div></div>
   <button class="btn" type="button" id="resetBtn">Reset to typical</button>
  </div>
 </div>
 
 
 <h2>About these figures</h2>
-
+<p>Charging an electric car at home typically draws about 7,000 watts (2,300–7,400W depending on the model). Used for 4 hours per charge, 3 charges a week, it costs about £7.37 per charge and £1,150 a year at the current price cap rate.</p>
 <p><b>Worth knowing:</b> Use off-peak EV tariff rate where applicable.</p>
 <p class="note">Source for the typical figure: Typical range (estimate). See <a href="how-we-calculate">how we calculate</a>.</p>
 <h2>Ways to cut the cost</h2>
@@ -49,7 +50,7 @@
 <h2>Questions</h2>
 <div class="faq"><details><summary>How much does it cost to charge an electric car at home per hour?</summary><p>At 26.32p/kWh, a 7000W model costs about £1.84 an hour while it&#x27;s running.</p></details><details><summary>How much does it cost to charge an electric car at home per year?</summary><p>About £1,150 a year, based on 4 hours per charge, 3 charges a week. Change the sliders above to match how you use yours.</p></details><details><summary>Is the standing charge included?</summary><p>No. You pay the standing charge every day whether or not the appliance is used, so it isn&#x27;t part of the cost of running it.</p></details><details><summary>How do I find my electric car at home&#x27;s actual power use?</summary><p>Check the rating label, plug or manual for the wattage, or the energy label for kWh figures. A plug-in energy monitor shows exactly what it uses.</p></details></div>
 
-<script type="application/json" id="appdata">{"mode": "power", "duty": 1.0, "mo": 12, "unit": "charge", "w": [2300.0, 7400.0, 7000.0, 100], "m": [15, 720.0, 240.0, 15], "u": [1, 14, 3.0, 1]}</script>
+<script type="application/json" id="appdata">{"mode": "power", "duty": 1.0, "mo": 12, "unit": "charge", "offpeak": true, "w": [2300.0, 7400.0, 7000.0, 100], "m": [15, 720.0, 240.0, 15], "u": [1, 14, 3.0, 1]}</script>
 </main>
 <footer>
 <p><a href="how-we-calculate">How we calculate</a> · <a href="about">About</a> · <a href="privacy">Privacy &amp; cookies</a></p>
@@ -65,6 +66,6 @@
 <button class="btn" id="rateClose" type="button">Close</button></div>
 </div></dialog>
 <script>window.RC_CAP={"rate": 26.32, "label": "Ofgem price cap average for 1 Oct \u2013 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland & Wales)."};</script>
-<script src="calc.js?v=5a7a3c55"></script>
+<script src="calc.js?v=840d0030"></script>
 </body>
 </html>

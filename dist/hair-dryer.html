@@ -22,7 +22,7 @@
 
 <div class="crumbs"><a href="/">All appliances</a> › <a href="category-personal-care">Personal care</a> › Hair dryer</div>
 <h1>How much does it cost to run a hair dryer?</h1>
-<p class="lede">A typical hair dryer uses about 2,000 watts (1,200–2,400W depending on the model). Used for 10 minutes per use, 7 uses a week, it costs about 8.8p per use and £31.93 a year at the current price cap rate.</p>
+<p class="lede">Hair dryers draw a lot of power but are used for only a few minutes. Drying time, and whether you use the hottest setting, make most of the difference.</p>
 <div class="two">
  <div>
   <div class="answer" aria-live="polite"><div class="lab" id="ansLab">Cost per use</div><div class="big" id="ansBig">8.8p</div><div class="sub" id="ansSub">About £31.93 a year at 10 minutes per use, 7 uses a week.</div></div>
@@ -33,13 +33,14 @@
   <div id="controls"><noscript><p class="note">Turn on JavaScript to adjust the figures.</p></noscript></div>
   <div class="ctl"><label>Your unit rate<output id="rateNow">26.32p/kWh</output></label><small id="rateWhat">Ofgem price cap average for 1 Oct – 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland &amp; Wales).</small>
   <button class="btn" type="button" data-rate style="margin-top:8px">Change rate</button></div>
+  
   <button class="btn" type="button" id="resetBtn">Reset to typical</button>
  </div>
 </div>
 
 
 <h2>About these figures</h2>
-
+<p>A typical hair dryer uses about 2,000 watts (1,200–2,400W depending on the model). Used for 10 minutes per use, 7 uses a week, it costs about 8.8p per use and £31.93 a year at the current price cap rate.</p>
 
 <p class="note">Source for the typical figure: CSE &#x27;What uses watt?&#x27; table. See <a href="how-we-calculate">how we calculate</a>.</p>
 <h2>Ways to cut the cost</h2>
@@ -49,7 +50,7 @@
 <h2>Questions</h2>
 <div class="faq"><details><summary>How much does it cost to run a hair dryer per hour?</summary><p>At 26.32p/kWh, a 2000W model costs about 53p an hour while it&#x27;s running.</p></details><details><summary>How much does it cost to run a hair dryer per year?</summary><p>About £31.93 a year, based on 10 minutes per use, 7 uses a week. Change the sliders above to match how you use yours.</p></details><details><summary>Is the standing charge included?</summary><p>No. You pay the standing charge every day whether or not the appliance is used, so it isn&#x27;t part of the cost of running it.</p></details><details><summary>How do I find my hair dryer&#x27;s actual power use?</summary><p>Check the rating label, plug or manual for the wattage, or the energy label for kWh figures. A plug-in energy monitor shows exactly what it uses.</p></details></div>
 
-<script type="application/json" id="appdata">{"mode": "power", "duty": 1.0, "mo": 12, "unit": "use", "w": [1200.0, 2400.0, 2000.0, 50], "m": [1, 30.0, 10.0, 1], "u": [1, 14, 7.0, 1]}</script>
+<script type="application/json" id="appdata">{"mode": "power", "duty": 1.0, "mo": 12, "unit": "use", "offpeak": false, "w": [1200.0, 2400.0, 2000.0, 50], "m": [1, 30.0, 10.0, 1], "u": [1, 14, 7.0, 1]}</script>
 </main>
 <footer>
 <p><a href="how-we-calculate">How we calculate</a> · <a href="about">About</a> · <a href="privacy">Privacy &amp; cookies</a></p>
@@ -65,6 +66,6 @@
 <button class="btn" id="rateClose" type="button">Close</button></div>
 </div></dialog>
 <script>window.RC_CAP={"rate": 26.32, "label": "Ofgem price cap average for 1 Oct \u2013 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland & Wales)."};</script>
-<script src="calc.js?v=5a7a3c55"></script>
+<script src="calc.js?v=840d0030"></script>
 </body>
 </html>

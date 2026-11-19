@@ -77,6 +77,31 @@ UNIT = {"electric-blanket": "night", "heated-throw": "evening", "oil-filled-radi
         "electric-shaver-charging": "charge", "outdoor-security-light": "day", "immersion-heater": "day"}
 
 INTRO = {
+ "electric-fan-heater": 'Fan heaters warm a room quickly and cost little to buy, but they draw a lot of power while running. They suit short bursts in a small room, not heating a space for hours.',
+ "convector-heater": 'Convector heaters warm the air, which rises and circulates round the room. They are cheap to buy, but every kWh of heat costs a full kWh of electricity, so long sessions add up.',
+ "electric-panel-heater": 'Wall-mounted panel heaters are slim and usually have a thermostat and timer. Like all direct electric heaters, they turn each kWh of electricity into a kWh of heat, so the running cost depends mostly on how long they are on.',
+ "halogen-heater": 'Halogen heaters give instant radiant heat to whoever is in front of them, rather than warming the whole room. That makes them useful for one person sitting still, but poor for heating a space.',
+ "infrared-heater": 'Infrared panels heat people and surfaces directly, so a room can feel warm at a lower air temperature. They tend to have lower wattages than convector heaters, but still cost the same per kWh.',
+ "storage-heater": 'Storage heaters charge up overnight and release heat through the day. They are designed for an off-peak tariff such as Economy 7, so enter your night rate for a realistic cost; at the standard rate they look far more expensive than they are.',
+ "electric-fire": 'Most of the running cost of an electric fire comes from its heater, not the flame effect. With the heat switched off, the flame effect alone uses very little.',
+ "heated-throw": 'A heated throw warms you directly rather than the room, so it uses a small fraction of the power of a space heater. It is one of the cheapest ways to stay warm on the sofa.',
+ "electric-towel-rail": 'Electric towel rails are low-powered, but many are left on for hours a day. A timer is usually the biggest single saving.',
+ "immersion-heater": 'An immersion heater is an electric element inside a hot water cylinder. A 3kW element running for an hour a day adds up quickly, so the timer setting and cylinder insulation matter most.',
+ "electric-shower": 'Electric showers are among the most powerful appliances in a home, typically 8.5–10.5kW, but they only run for a few minutes. Shower length makes the biggest difference to the cost.',
+ "hot-tub": "Most of a hot tub's cost comes from keeping the water hot between uses, not from the time you spend in it. A good insulated cover and the outside temperature make a big difference, so costs are much higher in winter.",
+ "dehumidifier-desiccant": 'Desiccant dehumidifiers use more power than compressor models, but they work better in cold rooms and give off warmth while running. That extra heat can offset some of the cost in an unheated room.',
+ "heat-pump-tumble-dryer": 'Heat pump tumble dryers recycle warm air instead of venting it, so they use roughly half the energy of a vented or condenser dryer. Cycles take longer, but each one costs much less.',
+ "washer-dryer": "A washer dryer's cost is mostly in the drying part of the cycle. Drying a full load in one go uses more energy per kilo than a separate tumble dryer, and many models can only dry about half the wash load.",
+ "microwave": 'Microwaves heat food directly and run for only a few minutes, so they are usually the cheapest way to cook or reheat small portions. The wattage on the front is the cooking power; the power drawn from the socket is higher.',
+ "slow-cooker": 'Slow cookers use little power but run for many hours. Even so, a full slow-cooked meal usually costs less than running an electric oven for an hour.',
+ "toaster": 'A toaster draws a lot of power for a couple of minutes, so each round costs very little. Toasting several slices at once is cheaper than heating a grill.',
+ "induction-hob-per-zone": 'Induction hobs heat the pan directly using a magnetic field, so less energy is lost to the air than with a ceramic hob. They also respond quickly, so you spend less time waiting for heat.',
+ "tv-led-lcd": 'Modern LED TVs use far less power than older plasma or CRT sets. Screen size and brightness are the biggest factors, and standby use is now very low on most models.',
+ "games-console": 'Current consoles draw much more power while gaming than when streaming video or browsing menus. Rest or instant-on modes keep a small draw running when the console looks switched off.',
+ "gaming-pc": "A gaming PC's power use depends heavily on the graphics card and how demanding the game is. Under load, a high-end machine can draw several times what it uses for browsing.",
+ "electric-car-charging-home": 'Charging at home is usually the cheapest way to run an electric car, especially on an EV tariff with a cheap overnight rate. Enter your night rate for a realistic cost; the standard rate overstates it for most EV owners.',
+ "hair-dryer": 'Hair dryers draw a lot of power but are used for only a few minutes. Drying time, and whether you use the hottest setting, make most of the difference.',
+ "portable-air-conditioner": 'Portable air conditioners use far more power than fans, because they actively cool the air and vent heat outside. In the UK they are usually needed only for a few hot weeks a year.',
  "air-fryer": "Air fryers are small and heat up fast, so they usually cost much less per meal than a full-size electric oven.",
  "electric-oven": "A conventional electric oven heats a large box of air, which makes it one of the more expensive ways to cook a small meal.",
  "kettle": "A kettle draws a lot of power, but only for a few minutes. The cost depends on how much water you boil, not on the wattage.",
@@ -112,6 +137,7 @@ CAT_TIPS = {
  "Lighting": ["Swap halogen and old-style bulbs for LEDs, which use around 80–90% less.", "Use timers or smart plugs for decorative lighting.", "Turn lights off in empty rooms."],
  "Other": ["Check the power rating on the plug or label for the most accurate figure.", "A plug-in energy monitor shows exactly what a device uses.", "Turn things off at the wall when not in use."],
 }
+OFFPEAK = {"storage-heater", "electric-car-charging-home"}
 OFFER = {"Heating": "lead", "tumble-dryer": "dryer", "washer-dryer": "dryer", "electric-car-charging-home": "ev"}
 
 # ------------------------------------------------------------------ data
@@ -273,7 +299,7 @@ def similar(a, n=6):
     return f'<table>{head}<tbody class="sortable">{"".join(row(b) for b in pick)}</tbody></table>'
 
 def appliance_page(a):
-    data = {"mode": a["mode"], "duty": a["duty"], "mo": a["mo"], "unit": a["unit"]}
+    data = {"mode": a["mode"], "duty": a["duty"], "mo": a["mo"], "unit": a["unit"], "offpeak": a["slug"] in OFFPEAK}
     if a["mode"] == "power":
         span = a["hi"] - a["lo"]
         wstep = 1 if span <= 20 else 5 if span <= 200 else 10 if span <= 1000 else 50 if span <= 4000 else 100
@@ -315,6 +341,7 @@ def appliance_page(a):
   <div id="controls"><noscript><p class="note">Turn on JavaScript to adjust the figures.</p></noscript></div>
   <div class="ctl"><label>Your unit rate<output id="rateNow">{R:.2f}p/kWh</output></label><small id="rateWhat">{esc(CAP['label'])}</small>
   <button class="btn" type="button" data-rate style="margin-top:8px">Change rate</button></div>
+  {('<div class="ctl"><label for="opRate">Your off-peak rate<output id="opNow">not set</output></label><small>Usually runs overnight on Economy 7 or an EV tariff. Enter your night rate from your bill or app; leave blank to use the rate above.</small><div class="row" style="margin-top:6px"><input id="opRate" type="number" step="0.01" min="1" max="200" inputmode="decimal" style="width:110px;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;font-weight:700"> <span style="align-self:center">p/kWh</span></div></div>') if a["slug"] in OFFPEAK else ''}
   <button class="btn" type="button" id="resetBtn">Reset to typical</button>
  </div>
 </div>
@@ -345,7 +372,7 @@ def cat_list(c, limit=None):
     return f'<section><h3><a href="{link(cat_slug[c])}">{esc(c)}</a></h3><ul class="sortable">{lis}</ul></section>'
 
 def home():
-    top = sorted(apps, key=lambda a: -a["year_p"])[:10]
+    top = sorted([a for a in apps if a["slug"] not in OFFPEAK], key=lambda a: -a["year_p"])[:10]
     toprows = "".join(f'<tr><td><a href="{link(a["slug"])}">{esc(a["name"])}</a></td><td class="n"><span data-kwhy="{a["kwh_year"]:.4f}">{pounds(a["year_p"])} a year</span></td></tr>' for a in top)
     search_items = "".join(f'<a class="tile" href="{link(a["slug"])}" data-n="{esc(a["name"].lower())} {esc(a["cat"].lower())}"><div class="n">{esc(a["name"])}</div><div class="c">{headline(a)}</div></a>' for a in apps)
     body = f"""
@@ -358,7 +385,7 @@ def home():
 <div class="cats">{''.join(cat_list(c) for c in cats)}</div>
 {ad("Display ad (homepage)")}
 <h2>The biggest costs in a typical home</h2>
-<div class="card"><table>{toprows}</table><p class="note" style="margin-bottom:0">Typical usage; heating items assume winter use only.</p></div>
+<div class="card"><table>{toprows}</table><p class="note" style="margin-bottom:0">Typical usage at the standard rate; heating items assume winter use only. Storage heaters and EV charging are left out because they usually run on cheaper off-peak rates.</p></div>
 </div>
 {email_box()}
 <script>

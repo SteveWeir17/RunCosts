@@ -22,7 +22,7 @@
 
 <div class="crumbs"><a href="/">All appliances</a> › <a href="category-heating">Heating</a> › Heated throw</div>
 <h1>How much does it cost to run a heated throw?</h1>
-<p class="lede">A typical heated throw uses about 120 watts (60–160W depending on the model). Used for 3 hours per evening, 7 evenings a week, for 6 months of the year, it costs about 9.5p per evening and £17.24 a year at the current price cap rate.</p>
+<p class="lede">A heated throw warms you directly rather than the room, so it uses a small fraction of the power of a space heater. It is one of the cheapest ways to stay warm on the sofa.</p>
 <div class="two">
  <div>
   <div class="answer" aria-live="polite"><div class="lab" id="ansLab">Cost per evening</div><div class="big" id="ansBig">9.5p</div><div class="sub" id="ansSub">About £17.24 a year at 3 hours per evening, 7 evenings a week, 6 months a year.</div></div>
@@ -33,13 +33,14 @@
   <div id="controls"><noscript><p class="note">Turn on JavaScript to adjust the figures.</p></noscript></div>
   <div class="ctl"><label>Your unit rate<output id="rateNow">26.32p/kWh</output></label><small id="rateWhat">Ofgem price cap average for 1 Oct – 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland &amp; Wales).</small>
   <button class="btn" type="button" data-rate style="margin-top:8px">Change rate</button></div>
+  
   <button class="btn" type="button" id="resetBtn">Reset to typical</button>
  </div>
 </div>
 
 
 <h2>About these figures</h2>
-
+<p>A typical heated throw uses about 120 watts (60–160W depending on the model). Used for 3 hours per evening, 7 evenings a week, for 6 months of the year, it costs about 9.5p per evening and £17.24 a year at the current price cap rate.</p>
 
 <p class="note">Source for the typical figure: Typical range (estimate). See <a href="how-we-calculate">how we calculate</a>.</p>
 <h2>Ways to cut the cost</h2>
@@ -49,7 +50,7 @@
 <h2>Questions</h2>
 <div class="faq"><details><summary>How much does it cost to run a heated throw per hour?</summary><p>At 26.32p/kWh, a 120W model costs about 3.2p an hour while it&#x27;s running.</p></details><details><summary>How much does it cost to run a heated throw per year?</summary><p>About £17.24 a year, based on 3 hours per evening, 7 evenings a week, 6 months a year. Change the sliders above to match how you use yours.</p></details><details><summary>Is the standing charge included?</summary><p>No. You pay the standing charge every day whether or not the appliance is used, so it isn&#x27;t part of the cost of running it.</p></details><details><summary>How do I find my heated throw&#x27;s actual power use?</summary><p>Check the rating label, plug or manual for the wattage, or the energy label for kWh figures. A plug-in energy monitor shows exactly what it uses.</p></details></div>
 
-<script type="application/json" id="appdata">{"mode": "power", "duty": 1.0, "mo": 6, "unit": "evening", "w": [60.0, 160.0, 120.0, 5], "m": [15, 540.0, 180.0, 15], "u": [1, 14, 7.0, 1]}</script>
+<script type="application/json" id="appdata">{"mode": "power", "duty": 1.0, "mo": 6, "unit": "evening", "offpeak": false, "w": [60.0, 160.0, 120.0, 5], "m": [15, 540.0, 180.0, 15], "u": [1, 14, 7.0, 1]}</script>
 </main>
 <footer>
 <p><a href="how-we-calculate">How we calculate</a> · <a href="about">About</a> · <a href="privacy">Privacy &amp; cookies</a></p>
@@ -65,6 +66,6 @@
 <button class="btn" id="rateClose" type="button">Close</button></div>
 </div></dialog>
 <script>window.RC_CAP={"rate": 26.32, "label": "Ofgem price cap average for 1 Oct \u2013 31 Dec 2026 (standard variable tariff, Direct Debit, England, Scotland & Wales)."};</script>
-<script src="calc.js?v=5a7a3c55"></script>
+<script src="calc.js?v=840d0030"></script>
 </body>
 </html>

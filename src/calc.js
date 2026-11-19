@@ -72,8 +72,11 @@
     });
   }
   function read(){var s={};ids.forEach(function(i){s[i]=parseFloat($(i).value)});return s}
+  function getOp(){try{var v=parseFloat(localStorage.getItem("rc_offpeak"));if(v>0&&v<200)return v}catch(e){}return null}
   function render(){
     if(!D)return;
+    var rate0=rate,op=D.offpeak?getOp():null,rate=op||rate0;
+    if(D.offpeak&&$("opNow"))$("opNow").textContent=op?op.toFixed(2)+"p/kWh (in use)":"not set";
     var s=read();ids.forEach(function(i){$(i+"o").textContent=fmts[i](s[i])});
     var mo=s.mth||D.mo,kUse=null,kWeek,kYear;
     if(D.mode==="power"){kUse=s.w/1000*(s.m/60)*D.duty;kWeek=kUse*s.u;kYear=kWeek*52*mo/12}
@@ -92,8 +95,8 @@
     if(kUse!==null)rows+='<tr class="kwh"><td>Per '+D.unit+'</td><td>'+kUse.toFixed(2)+' kWh</td></tr>';
     rows+='<tr class="kwh"><td>Per year</td><td>'+Math.round(kYear).toLocaleString("en-GB")+' kWh</td></tr>';
     $("tbl").innerHTML=rows;
-    $("rateNow").textContent=rate.toFixed(2)+"p/kWh";
-    $("rateWhat").textContent=rate===CAP.rate?CAP.label:"Your own rate, saved on this device.";
+    $("rateNow").textContent=rate0.toFixed(2)+"p/kWh";
+    $("rateWhat").textContent=rate0===CAP.rate?CAP.label:"Your own rate, saved on this device.";
     var hp=$("hpCost");
     if(hp){var y2=1.8*s.u*52*mo/12*rate;hp.textContent=pounds(y2);$("hpSave").textContent=pounds(Math.max(0,year-y2))}
   }
@@ -121,5 +124,10 @@
   })});
 
   if(D)build();
+  var opIn=$("opRate");
+  if(opIn){var v0=getOp();if(v0)opIn.value=v0.toFixed(2);
+    opIn.addEventListener("input",function(){var v=parseFloat(opIn.value);
+      try{if(v>0&&v<200)localStorage.setItem("rc_offpeak",String(v));else localStorage.removeItem("rc_offpeak")}catch(e){}
+      render()})}
   refresh();
 })();
